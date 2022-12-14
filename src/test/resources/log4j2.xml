@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration>
+    <Properties>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss} %-5p %c{1} - %m%n</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Logger name="org.springframework" level="error">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="com.codeborne.selenide.drivercommands.DisposablesRegistry" level="error">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="com.codeborne.selenide.impl.FileHelper" level="error">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Logger name="com.codeborne.selenide.webdriver.SelenideNettyClientFactory" level="error">
+            <AppenderRef ref="console"/>
+        </Logger>
+        <Root level="info">
+            <AppenderRef ref="console"/>
+        </Root>
+    </Loggers>
+</Configuration>
