@@ -18,4 +18,4 @@ jobs:
         with:
           java-version: 11
       - name: "Run smoke suit"
-        run: ./gradlew test -Denv=prod -Ddevice=desktop -Dsuite=smoke -Dspring.profiles.active=desktop
+        run: ./gradlew test -Denv=prod -Ddevice=desktop -Dsuite=smoke -Dspring.profiles.active=desktop -Dselenide.remote=http://18.185.97.99:4444/wd/hub
