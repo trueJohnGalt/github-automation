@@ -17,5 +17,7 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 11
-      - name: "Run smoke suit"
+      - name: "Run smoke suit for desktop"
         run: ./gradlew test -Denv=prod -Ddevice=desktop -Dsuite=smoke -Dspring.profiles.active=desktop -Dselenide.remote=http://18.185.97.99:4444/wd/hub
+      - name: "Run smoke suit for mobile"
+        run: ./gradlew test -Denv=prod -Ddevice=mobile -Dsuite=smoke -Dspring.profiles.active=mobile -Dselenide.remote=http://18.185.97.99:4444/wd/hub
