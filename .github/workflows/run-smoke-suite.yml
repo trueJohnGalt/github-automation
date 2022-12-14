@@ -1,0 +1,21 @@
+name: Run smoke suit
+
+on:
+  pull_request:
+    branches:
+      - '*'
+  push:
+    branches:
+      - 'master'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: set up JDK 11
+        uses: actions/setup-java@v1
+        with:
+          java-version: 11
+      - name: "Run smoke suit"
+        run: ./gradlew test -Denv=prod -Ddevice=desktop -Dsuite=smoke -Dspring.profiles.active=desktop
